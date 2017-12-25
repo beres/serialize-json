@@ -1,6 +1,6 @@
 {
   "name": "serialize-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Serialize form data to Json (deep structure).",
   "main": "index.js",
   "scripts": {
@@ -14,9 +14,7 @@
     "serialize",
     "json",
     "form",
-    "array",
-    "json",
-    "form"
+    "array"
   ],
   "author": "yiming.hsu <mufasa.hsu@gmail.com>",
   "license": "MIT",
