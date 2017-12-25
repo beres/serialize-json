@@ -6,7 +6,7 @@
     <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-    <form>
+    <form id="example">
         <input type="text" name="desc" value="demo serializeArray of form to json object.">
         <input type="text" name="users[0].name" value="user A">
         <input type="text" name="users[0].skills[0].name" value="PHP">
@@ -22,6 +22,9 @@
         <input type="text" name="users[1].skills[1].years" value="7">
         <input type="text" name="data.replacement" value="origin value">
         <input type="text" name="data.replacement" value="relpace value">
+        <input type="text" name="data.index[]" value="item 1">
+        <input type="text" name="data.index[]" value="item 2">
+        <input type="text" name="data.index[100]" value="item 100">
     </form>
 </body>
 </html>

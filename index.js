@@ -29,28 +29,37 @@ the value will replace the origin value.
 */
 
 // main function
-function serializeJson (formArr) {
-    var data = {};
-    if(formArr instanceof Array) {
-        data = formArr.reduce(function (r, o) {
-            var s = r, arr = o.name.split('.');
-            arr.forEach((n, k) => {
-                var ck = n.replace(/\[[0-9]*\]$/, "");
-                if (!s.hasOwnProperty(ck))
-                    s[ck] = (new RegExp("\[[0-9]*\]$").test(n)) ? [] : {};
-                if (s[ck] instanceof Array) {
-                    var i = parseInt((n.match(new RegExp("([0-9]+)\]$")) || []).pop(), 10);
-                    i = isNaN(i) ? s[ck].length : i;
-                    s[ck][i] = s[ck][i] || {};
-                    (k === arr.length - 1) ? s[ck][i] = o.value : s = s[ck][i];
-                }
-                else {
-                    (k === arr.length - 1) ? s[ck] = o.value : s = s[ck];
-                }
-            });
-            return r;
-        }, {});
+function serializeJson (form) {
+    var data = {}, form_arr = [];
+    // export to array
+    if(form instanceof HTMLFormElement) {
+        for(var i in form.elements) {
+            if(form.elements[i] instanceof HTMLInputElement)
+                form_arr.push({name:form.elements[i].name, value:form.elements[i].value});
+        }
     }
+    else if(form instanceof Array) {
+        form_arr = form;
+    }
+    // serialize to json
+    data = form_arr.reduce(function (r, o) {
+        var s = r, arr = o.name.split('.');
+        arr.forEach((n, k) => {
+            var ck = n.replace(/\[[0-9]*\]$/, "");
+            if (!s.hasOwnProperty(ck))
+                s[ck] = (new RegExp("\[[0-9]*\]$").test(n)) ? [] : {};
+            if (s[ck] instanceof Array) {
+                var i = parseInt((n.match(new RegExp("([0-9]+)\]$")) || []).pop(), 10);
+                i = isNaN(i) ? s[ck].length : i;
+                s[ck][i] = s[ck][i] || {};
+                (k === arr.length - 1) ? s[ck][i] = o.value : s = s[ck][i];
+            }
+            else {
+                (k === arr.length - 1) ? s[ck] = o.value : s = s[ck];
+            }
+        });
+        return r;
+    }, {});
     return data;
 }
 
