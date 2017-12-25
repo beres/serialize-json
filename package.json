@@ -4,7 +4,6 @@
   "description": "Serialize form data to Json (deep structure).",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:main"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,25 @@
+{
+  "name": "serialize-json",
+  "version": "1.0.0",
+  "description": "Serialize form data to Json (deep structure).",
+  "main": "index.js",
+  "keywords": [
+    "jquery",
+    "serialize",
+    "json",
+    "form",
+    "array",
+    "json",
+    "form"
+  ],
+  "author": ["yiming.hsu <mufasa.hsu@gmail.com>"],
+  "license": "MIT",
+  "homepage": "https://github.com/Easter1021/serialize-json#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
