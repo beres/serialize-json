@@ -146,4 +146,4 @@ This module is based on ideas from jQuery serialize.
 
 ## MIT License
 
-Copyright (c) 2017 yiming.hsu <mufasa.hsu@gmail.com}
+Copyright (c) 2017 yiming.hsu <mufasa.hsu@gmail.com>

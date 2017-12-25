@@ -1,6 +1,6 @@
 {
   "name": "form-serialize-json",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Serialize form data to Json (deep structure).",
   "main": "serialize-json.js",
   "scripts": {

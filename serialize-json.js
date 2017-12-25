@@ -32,7 +32,7 @@ the value will replace the origin value.
 function serializeJson (form) {
     var data = {}, form_arr = [];
     // export to array
-    if(form instanceof HTMLFormElement) {
+    if(typeof HTMLFormElement === "function" && form instanceof HTMLFormElement) {
         for(var i in form.elements) {
             if(form.elements[i] instanceof HTMLInputElement)
                 form_arr.push({name:form.elements[i].name, value:form.elements[i].value});
