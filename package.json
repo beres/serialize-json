@@ -1,5 +1,5 @@
 {
-  "name": "serialize-json",
+  "name": "form-serialize-json",
   "version": "1.0.1",
   "description": "Serialize form data to Json (deep structure).",
   "main": "index.js",
