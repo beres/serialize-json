@@ -1,8 +1,8 @@
 # form-serialize-json
  Serialize form data to Json (deep structure).
 
- serialises a form to an object. The use is the same with $.fn.serialize
- and $.fn.serializeArray, or serializeJson(array)
+ This script solved the problem of hierarchy name of Input in C#.
+ serialises a form to an object. The use is the same with $.fn.serialize and $.fn.serializeArray, or serializeJson(array).
 
  The keys are the form element names(split with dot) and the value is the the form element
  value. If multiple form elements have the same name with different values,
