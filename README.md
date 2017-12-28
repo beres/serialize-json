@@ -57,6 +57,23 @@ var obj = serialize(form);
 // empty × 98 is real empty
 ```
 
+### array fields (auto append) <protected>
+Fields who's name ends with [] are always serialized as an array field.
+```html
+<form id="example">
+    <input type="text" name="data.index[0]" value="item 1">
+    <input type="text" name="data.index[]" value="item 2">
+    <input type="text" name="data.index[1]" value="item 3">
+</form>
+```
+```js
+var serialize = require('form-serialize-json'),
+    form = document.querySelector('#example');
+
+var obj = serialize(form, true);  //protected
+// obj -> { data: { index: ["item 1", "item3", "item 2"] } }
+```
+
 ### hierarchy objects
 it will be come deep json structure if fields who has name with dot(.)
 ```html

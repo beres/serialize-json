@@ -29,7 +29,7 @@ the value will replace the origin value.
 */
 
 // main function
-function serializeJson (form) {
+function serializeJson (form, protected = false) {
     var data = {}, form_arr = [];
     // export to array
     if(typeof HTMLFormElement === "function" && form instanceof HTMLFormElement) {
@@ -52,10 +52,24 @@ function serializeJson (form) {
                 var i = parseInt((n.match(new RegExp("([0-9]+)\]$")) || []).pop(), 10);
                 i = isNaN(i) ? s[ck].length : i;
                 s[ck][i] = s[ck][i] || {};
-                (k === arr.length - 1) ? s[ck][i] = o.value : s = s[ck][i];
+                if(k === arr.length - 1) {
+                    if(protected && JSON.stringify({}) !== JSON.stringify(s[ck][i])) {
+                        
+                        while(s[ck][i] !== undefined) {
+                            var tmp = s[ck][i];
+                            s[ck][i] = o.value;
+                            o.value = tmp;
+                            i++;
+                        }
+                    }
+                    return s[ck][i] = o.value;
+                }
+                else {
+                    return s = s[ck][i];
+                }
             }
             else {
-                (k === arr.length - 1) ? s[ck] = o.value : s = s[ck];
+                return (k === arr.length - 1) ? s[ck] = o.value : s = s[ck];
             }
         });
         return r;
