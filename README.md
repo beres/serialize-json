@@ -8,7 +8,17 @@
  value. If multiple form elements have the same name with different values,
  the value will replace the origin value.
 
-## install
+## Support
+
+|Feature|Node.js|Chrome|Edge|Firefox|Internet Explorer|Opera|Safari|
+| -- | -- | -- | -- | -- | -- | -- | -- |
+|Basic support|Yes|5|Yes|4|9|10.5|5|
+
+|Feature|Android webview|Chrome for Android|Edge mobile|Firefox for Android|IE mobile|Opera Android|iOS Safari|
+| -- | -- | -- | -- | -- | -- | -- | -- |
+|Basic support|Yes|Yes|Yes|4|Yes|Yes|Yes|
+
+## Install
 ### Node.js
 ```shell
 $ npm install form-serialize-json
@@ -23,7 +33,7 @@ $ npm install form-serialize-json
 <script type="text/javascript" src="serialize-json.js">
 ```
 
-## use
+## Use
 form-serialize-json is surprisingly easy to use.
 ```html
 <form id="example">
@@ -89,7 +99,7 @@ obj -> {
 *
 ```
 
-##references
+## References
 
 This module is based on ideas from jQuery serialize.
 
