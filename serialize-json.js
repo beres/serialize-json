@@ -98,7 +98,9 @@ function serializeJson (form, protected = false) {
     // export to array
     if(typeof HTMLFormElement === "function" && form instanceof HTMLFormElement) {
         for(var i in form.elements) {
-            if(form.elements[i] instanceof HTMLInputElement)
+            if(form.elements[i] instanceof HTMLInputElement || 
+               form.elements[i] instanceof HTMLSelectElement || 
+               form.elements[i] instanceof HTMLTextAreaElement)
                 form_arr.push({name:form.elements[i].name, value:form.elements[i].value});
         }
     }
